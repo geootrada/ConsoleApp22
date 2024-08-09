@@ -51,6 +51,7 @@ namespace ConsoleApp22
                     case CommandFireBall:
                         bossHealth -= challengerFireBall;
                         challengerHealth -= bossAttack;
+                        challengerMana -= challengerFireBall;
                         fireBallExecuted = true;
                         break;
 
@@ -59,7 +60,6 @@ namespace ConsoleApp22
                         {
                             bossHealth -= challengerExposition;
                             challengerHealth -= bossAttack;
-                            challengerMana -= challengerExposition;
                             fireBallExecuted = false;
                         }
                         else
