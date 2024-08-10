@@ -13,8 +13,8 @@ namespace ConsoleApp22
             const string CommandBlast = "3";
             const string CommandHealing = "4";
 
-            bool fireBallExecuted = false;
-            bool healingExecuted = true;
+            bool isFireBallExecuted = false;
+            bool isHealingExecuted = true;
 
             int challengerHealth = random.Next(500, 1000);
             int challengerMana = random.Next(500, 1001);
@@ -52,16 +52,15 @@ namespace ConsoleApp22
                         bossHealth -= challengerFireBall;
                         challengerHealth -= bossAttack;
                         challengerMana -= challengerFireBall;
-                        fireBallExecuted = true;
+                        isFireBallExecuted = true;
                         break;
 
                     case CommandBlast:
-
-                        if (fireBallExecuted == true)
+                        if (isFireBallExecuted == true)
                         {
                             bossHealth -= challengerExposition;
                             challengerHealth -= bossAttack;
-                            fireBallExecuted = false;
+                            isFireBallExecuted = false;
                         }
                         else
                         {
@@ -71,11 +70,11 @@ namespace ConsoleApp22
                         break;
 
                     case CommandHealing:
-                        if (healingExecuted == true)
+                        if (isHealingExecuted == true)
                         {
                             challengerHealth = startChallengerHealth;
                             challengerMana = startChallengerMana;
-                            healingExecuted = false;
+                            isHealingExecuted = false;
                         }
                         else
                         {
