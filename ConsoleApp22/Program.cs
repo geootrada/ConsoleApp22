@@ -10,13 +10,13 @@ namespace ConsoleApp22
 
             const string CommandAttack = "1";
             const string CommandFireBall = "2";
-            const string CommandBlast= "3";
+            const string CommandBlast = "3";
             const string CommandHealing = "4";
 
             bool fireBallExecuted = false;
             bool healingExecuted = true;
 
-            int challengerHealth = random.Next(500,1000);
+            int challengerHealth = random.Next(500, 1000);
             int challengerMana = random.Next(500, 1001);
             int challengerAttack = random.Next(50, 100);
             int challengerFireBall = 100;
@@ -33,6 +33,7 @@ namespace ConsoleApp22
                 $"{CommandBlast} - Взрыв,применяется только если был использован огненный шар. Урон противнику {challengerExposition} HP.\n" +
                 $"{CommandHealing} - Исцеление. Восстанавливает здоровье и ману, но не больше их максимального значения. Используется только один раз.\n" +
                 $"Не совершайте ошибок, иначе ход перейдет к Боссу. После вашего удара сразу идет атака противника");
+
             Console.WriteLine($"Бой с Боссом");
             Console.WriteLine($"Начальные значения: Босс - {bossHealth}HP, претендент - {challengerHealth}HP, {challengerMana}MP");
 
@@ -56,6 +57,7 @@ namespace ConsoleApp22
                         break;
 
                     case CommandBlast:
+
                         if (fireBallExecuted == true)
                         {
                             bossHealth -= challengerExposition;
@@ -76,7 +78,7 @@ namespace ConsoleApp22
                             challengerMana = startChallengerMana;
                             healingExecuted = false;
                         }
-                        else 
+                        else
                         {
                             Console.WriteLine("Вы не можете больше использовать это заклинание, Боссс наносит ответный удар.");
                             challengerHealth -= bossAttack;
@@ -87,25 +89,26 @@ namespace ConsoleApp22
                         Console.WriteLine("Недопустимая команда, урона противнику нет, Босс нпносит ответный удар.");
                         challengerHealth -= bossAttack;
                         break;
-
                 }
+
                 Console.WriteLine($"Итоги раунда: Босс: {bossHealth}HP, претендент: {challengerHealth}HP, {challengerMana}MP");
             }
-            
+
             Console.WriteLine("Итоги боя:");
 
-                if (bossHealth <= 0)
-                {
-                    Console.WriteLine("Вы победили!!! Вы теперь новый Босс!!!");
-                }
-                else if (challengerHealth <= 0)
-                {
-                    Console.WriteLine("Вы проиграли, Босс остается на троне!");
-                }
-                else 
-                {
-                    Console.WriteLine("Ничья!!! Вы оба погибли!!");
-                }
+            if (bossHealth <= 0)
+            {
+                Console.WriteLine("Вы победили!!! Вы теперь новый Босс!!!");
+            }
+            else if (challengerHealth <= 0)
+            {
+                Console.WriteLine("Вы проиграли, Босс остается на троне!");
+            }
+            else
+            {
+                Console.WriteLine("Ничья!!! Вы оба погибли!!");
+            }
+
             Console.WriteLine("Бой окончен");
         }
     }
