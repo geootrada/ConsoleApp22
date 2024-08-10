@@ -39,7 +39,6 @@ namespace ConsoleApp22
 
             while (challengerHealth > 0 && bossHealth > 0)
             {
-
                 Console.WriteLine($"Выбирайте вариант своего хода");
 
                 switch (Console.ReadLine())
